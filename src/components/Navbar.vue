@@ -30,7 +30,7 @@
       <!-- <a class="btn btn-ghost text-xl">MyPortfolio</a> -->
     </div>
     <div class="navbar-end">
-      <a href="../assets/file/Resume_Ibnu Prayudha.pdf" download="">
+      <a href="https://drive.google.com/file/d/1YNAaJ97I3GWeal3gSR9KkNYu9T9oEsCJ/view?usp=sharing" target="_blank" download="">
         <button class="btn btn-sm rounded-full">Unduh CV</button>
       </a>
     </div>
