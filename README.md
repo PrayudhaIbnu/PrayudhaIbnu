@@ -17,13 +17,13 @@
 <img src="https://i.gifer.com/LCJi.gif" width="220" alt="SpongeBob Animated" style="border-radius:12px; box-shadow:0 4px 16px rgba(0,0,0,0.12);" />
 ---
 
-### 🛠️ Tech Stack
+### Discuss with me about.
 
 <img src="https://skillicons.dev/icons?i=php,laravel,js,vue,nuxt,nodejs,mysql,mongodb,bootstrap,tailwind,figma,git,postman" />
 
 ---
 
-### 🌐 Connect With Me
+### Connect With Me
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-1ABC9C?style=for-the-badge&logo=About.me&logoColor=white)](https://prayudhaibnu.netlify.app)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:prayudhaibnu823@gmail.com)
