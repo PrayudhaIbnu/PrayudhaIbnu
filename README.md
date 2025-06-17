@@ -2,7 +2,7 @@
     <img src="https://static.wikia.nocookie.net/spongebob/images/0/09/High_Sea_Diving_184.png/revision/latest/scale-to-width-down/1000?cb=20180407114204" width="500" style="border-radius: 30px;" alt="Profile Banner" />
 </p>
 
-<h1 align="center">Hi 👋, I'm <span style="color:#1ABC9C;">Prayudha Ibnu</span></h1>
+<h1 align="center">Hi, I'm <span style="color:#1ABC9C;">Prayudha</span></h1>
 
 <p align="center">
     <em>
