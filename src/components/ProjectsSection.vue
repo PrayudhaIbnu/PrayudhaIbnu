@@ -15,13 +15,12 @@
             </span>
           </div>
 
-          <h2
-            class="text-4xl inline-flex gap-3 items-center md:text-5xl font-extrabold tracking-tight">
+          <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">
             <span
-              class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-white">
+              class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-white mb-6">
               <span class="relative text-cyan-600 px-3 py-1">Selected</span>
             </span>
-            <span class="text-green-600 bg-white rounded-xl px-3 py-1"
+            <span class="text-green-600 bg-white rounded-xl px-3 py-1 ml-3"
               >Projects</span
             >
           </h2>

@@ -16,9 +16,12 @@
       <h1
         class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
         Hi, I’m
-        <span
-          class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-green-200">
-          Prayudha Ibnu
+        <span class="block text-transparent bg-clip-text bg-white mt-5">
+          <span
+            class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-white">
+            <span class="relative text-cyan-600 px-3 py-1">Prayudha</span>
+          </span>
+          <span class="ml-2">Ibnu</span>
         </span>
       </h1>
 

@@ -2,7 +2,7 @@
   <section
     id="contact"
     ref="sectionRef"
-    class="relative py-24 overflow-hidden bg-gradient-to-tl from-green-300 via-cyan-600 to-cyan-600 text-white">
+    class="relative py-24 overflow-hidden bg-gradient-to-tr from-green-300 via-cyan-600 to-cyan-600 text-white">
     <!-- Soft Glow -->
     <!-- <div
       class="absolute -top-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
@@ -49,7 +49,7 @@
             <div
               v-for="(item, index) in contactInfo"
               :key="index"
-              class="flex items-start gap-4 transition-all duration-700"
+              class="flex items-start gap-4 transition-all duration-700 bg-gradient-to-r from-cyan-600/60 to-cyan-600/10 backdrop-blur px-2 py-2 rounded-full"
               :style="{ transitionDelay: `${(index + 1) * 200}ms` }"
               :class="
                 isVisible
@@ -57,7 +57,7 @@
                   : 'translate-y-8 opacity-0'
               ">
               <div
-                class="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-900/20 backdrop-blur-md border border-white/30">
+                class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-600/20 backdrop-blur-md border border-white/30">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   class="h-5 w-5"
@@ -73,7 +73,7 @@
               </div>
 
               <div>
-                <p class="text-sm uppercase tracking-wider text-white/70">
+                <p class="text-sm uppercase tracking-wider text-gray-900/50">
                   {{ item.label }}
                 </p>
                 <p class="text-lg font-semibold text-white">
