@@ -1,42 +1,44 @@
 <template>
   <div class="relative flex">
-    <nav class="fixed left-8 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
+    <nav class="fixed left-10 top-1/2 -translate-y-1/2 z-50 hidden lg:block">
       <div class="relative flex flex-col items-center">
-        <!-- Vertical Track -->
-        <div class="absolute h-full w-0.5 bg-gray-200 -z-10"></div>
+        <!-- Vertical Gradient Track -->
+        <div
+          class="absolute h-full w-[2px] bg-gradient-to-b from-white/40 via-white/20 to-white/40 backdrop-blur-sm"></div>
 
-        <ul class="flex flex-col gap-8">
+        <ul class="flex flex-col gap-10">
           <li
             v-for="section in sections"
             :key="section.id"
             class="group relative flex items-center">
-            <!-- Tooltip Label -->
+            <!-- Modern Glass Tooltip -->
             <span
-              class="absolute left-10 px-3 py-1.5 rounded-lg bg-gray-900 text-white text-xs font-semibold opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 shadow-xl whitespace-nowrap pointer-events-none after:content-[''] after:absolute after:right-full after:top-1/2 after:-translate-y-1/2 after:border-8 after:border-transparent after:border-r-gray-900">
+              class="absolute left-12 px-4 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-medium opacity-0 -translate-x-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0 shadow-lg whitespace-nowrap pointer-events-none">
               {{ section.label }}
             </span>
 
-            <!-- Stepper Dot -->
+            <!-- Navigation Dot -->
             <a
               :href="'#' + section.id"
-              class="relative flex items-center justify-center w-5 h-5 rounded-full transition-all duration-500"
+              class="relative flex items-center justify-center w-6 h-6 rounded-full transition-all duration-500"
               :class="
                 activeSection === section.id
-                  ? 'bg-gray-600 shadow-lg shadow-gray-200 scale-110'
-                  : 'bg-white border-2 border-gray-300 hover:border-gray-400'
+                  ? 'bg-gradient-to-br from-teal-400 to-cyan-500 shadow-lg shadow-cyan-500/40 scale-110'
+                  : 'bg-white/20 border border-white/30 hover:bg-white/30'
               ">
-              <!-- Pulsing effect for active section -->
+              <!-- Glow Ring -->
               <span
                 v-if="activeSection === section.id"
-                class="absolute inset-0 rounded-full bg-gray-600 animate-ping opacity-20"></span>
+                class="absolute inset-0 rounded-full bg-cyan-400 blur-md opacity-40">
+              </span>
 
               <!-- Inner Dot -->
               <div
-                class="w-1.5 h-1.5 rounded-full transition-all duration-300"
+                class="w-2 h-2 rounded-full transition-all duration-300"
                 :class="
                   activeSection === section.id
                     ? 'bg-white'
-                    : 'bg-transparent group-hover:bg-gray-300'
+                    : 'bg-white/40 group-hover:bg-white'
                 "></div>
             </a>
           </li>
@@ -49,7 +51,7 @@
       <AboutSection id="about" />
       <SkillsSection id="skills" />
       <ProjectsSection id="projects" />
-      <!-- <Promotion id="promotion" /> -->
+      <Promotion id="promotion" />
       <ContactSection id="contact" />
     </main>
   </div>
@@ -68,12 +70,12 @@ import ContactSection from "@/components/ContactSection.vue";
 import Footer from "@/components/Footer.vue";
 
 const sections = [
-  { id: "hero", label: "Hero" },
-  { id: "about", label: "About" },
+  { id: "hero", label: "Hi!" },
+  { id: "about", label: "About Me" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "promotion", label: "Promotion" },
-  { id: "contact", label: "Contact" },
+  { id: "promotion", label: "Let's Work Together" },
+  { id: "contact", label: "Get In Touch" },
 ];
 
 const activeSection = ref("hero");

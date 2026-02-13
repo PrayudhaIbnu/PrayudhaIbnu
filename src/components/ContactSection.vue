@@ -1,3 +1,169 @@
+<template>
+  <section
+    id="contact"
+    ref="sectionRef"
+    class="relative py-24 overflow-hidden bg-gradient-to-tl from-green-300 via-cyan-600 to-cyan-600 text-white">
+    <!-- Soft Glow -->
+    <!-- <div
+      class="absolute -top-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+    <div
+      class="absolute -bottom-32 -right-32 w-96 h-96 bg-black/10 rounded-full blur-3xl"></div> -->
+
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- LEFT SIDE -->
+        <div
+          :class="[
+            'transition-all duration-1000',
+            isVisible
+              ? 'translate-x-0 opacity-100'
+              : '-translate-x-12 opacity-0',
+          ]">
+          <span
+            class="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wider uppercase rounded-full bg-gray-900/20 backdrop-blur-md">
+            Contact Me
+          </span>
+
+          <h2 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            Let’s Build
+            <span
+              class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-white mb-6">
+              <span class="relative text-cyan-600 px-3 py-1">Something</span>
+            </span>
+            <span class="text-white/80"
+              >Great
+              <span
+                class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-2 before:bg-white mb-6">
+                <span class="relative text-green-600 px-3 py-1">Together</span>
+              </span>
+            </span>
+          </h2>
+
+          <p class="mt-6 text-lg text-white/90 max-w-xl">
+            Have a project in mind? Need a professional company profile website?
+            Send your details and let’s discuss how we can make it happen.
+          </p>
+
+          <!-- CONTACT INFO -->
+          <div class="mt-10 space-y-6">
+            <div
+              v-for="(item, index) in contactInfo"
+              :key="index"
+              class="flex items-start gap-4 transition-all duration-700"
+              :style="{ transitionDelay: `${(index + 1) * 200}ms` }"
+              :class="
+                isVisible
+                  ? 'translate-y-0 opacity-100'
+                  : 'translate-y-8 opacity-0'
+              ">
+              <div
+                class="w-12 h-12 flex items-center justify-center rounded-xl bg-gray-900/20 backdrop-blur-md border border-white/30">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    :d="item.icon" />
+                </svg>
+              </div>
+
+              <div>
+                <p class="text-sm uppercase tracking-wider text-white/70">
+                  {{ item.label }}
+                </p>
+                <p class="text-lg font-semibold text-white">
+                  {{ item.value }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <div
+          :class="[
+            'backdrop-blur-xl bg-white/15 p-8 md:p-10 rounded-3xl shadow-2xl transition-all duration-1000 delay-300',
+            isVisible
+              ? 'translate-x-0 opacity-100'
+              : 'translate-x-12 opacity-0',
+          ]">
+          <form @submit.prevent="sendEmail" class="space-y-5">
+            <div class="grid md:grid-cols-2 gap-5">
+              <div>
+                <label class="block text-sm font-semibold mb-2">
+                  Full Name
+                </label>
+                <input
+                  v-model="form.name"
+                  type="text"
+                  required
+                  placeholder="John Doe"
+                  class="w-full px-4 py-3 rounded-xl bg-gray-900/20 border border-white/30 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all" />
+              </div>
+
+              <div>
+                <label class="block text-sm font-semibold mb-2"> Email </label>
+                <input
+                  v-model="form.email"
+                  type="email"
+                  required
+                  placeholder="john@example.com"
+                  class="w-full px-4 py-3 rounded-xl bg-gray-900/20 border border-white/30 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-2"> Subject </label>
+              <input
+                v-model="form.subject"
+                type="text"
+                required
+                placeholder="Company Profile Website"
+                class="w-full px-4 py-3 rounded-xl bg-gray-900/20 border border-white/30 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all" />
+            </div>
+
+            <div>
+              <label class="block text-sm font-semibold mb-2">
+                Project Details
+              </label>
+              <textarea
+                v-model="form.message"
+                rows="4"
+                required
+                placeholder="Tell me about your business..."
+                class="w-full px-4 py-3 rounded-xl bg-gray-900/20 border border-white/30 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all resize-none"></textarea>
+            </div>
+
+            <!-- STATUS -->
+            <div
+              v-if="isSuccess || errorMessage"
+              class="rounded-xl p-4 text-sm font-semibold backdrop-blur-md"
+              :class="
+                isSuccess
+                  ? 'bg-green-400/20 border border-green-300/30'
+                  : 'bg-red-400/20 border border-red-300/30'
+              ">
+              {{ isSuccess ? "Message sent successfully!" : errorMessage }}
+            </div>
+
+            <button
+              type="submit"
+              :disabled="isLoading"
+              class="w-full py-4 rounded-xl bg-slate-900 text-white font-bold transition-all duration-300 hover:bg-black hover:-translate-y-1 hover:shadow-lg disabled:opacity-60">
+              {{ isLoading ? "Sending..." : "Start Project Discussion →" }}
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
 import emailjs from "@emailjs/browser";
@@ -89,184 +255,3 @@ const sendEmail = async () => {
   }
 };
 </script>
-
-<template>
-  <section
-    id="contact"
-    ref="sectionRef"
-    class="relative overflow-hidden bg-gradient-to-tr from-cyan-200 via-gray-50 to-red-200 py-24">
-    <div class="mx-auto max-w-7xl px-6">
-      <div class="grid items-center gap-16 lg:grid-cols-2">
-        <!-- LEFT CONTENT -->
-        <div
-          :class="[
-            'transition-all duration-1000',
-            isVisible
-              ? 'translate-x-0 opacity-100'
-              : '-translate-x-12 opacity-0',
-          ]">
-          <span
-            class="mb-4 inline-block rounded-full bg-cyan-50 px-3 py-1 text-sm font-medium text-cyan-600">
-            Contact Me
-          </span>
-
-          <h2
-            class="text-4xl font-extrabold tracking-tight text-gray-900 md:text-5xl">
-            Let’s build something
-            <span class="text-cyan-600">extraordinary</span> together.
-          </h2>
-
-          <p class="mt-6 max-w-lg text-lg leading-relaxed text-gray-600">
-            Whether you have a specific project in mind or just want to say hi,
-            I'm always open to discussing new opportunities and creative ideas.
-          </p>
-
-          <!-- CONTACT INFO -->
-          <div class="mt-10 space-y-6">
-            <div
-              v-for="(item, index) in contactInfo"
-              :key="index"
-              class="group flex items-start gap-4 transition-all duration-700"
-              :style="{ transitionDelay: `${(index + 1) * 200}ms` }"
-              :class="
-                isVisible
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-8 opacity-0'
-              ">
-              <div
-                class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border border-cyan-600 bg-gray-50 text-cyan-600 transition-colors duration-300 group-hover:bg-cyan-600 group-hover:text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
-                    :d="item.icon" />
-                </svg>
-              </div>
-
-              <div>
-                <p
-                  class="text-sm font-medium uppercase tracking-wider text-gray-400">
-                  {{ item.label }}
-                </p>
-                <p class="text-lg font-semibold text-gray-900">
-                  {{ item.value }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- FORM -->
-        <div
-          :class="[
-            'bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-cyan-100/50 border border-gray-100 transition-all duration-1000 transform delay-300',
-            isVisible
-              ? 'translate-x-0 opacity-100'
-              : 'translate-x-12 opacity-0',
-          ]">
-          <form @submit.prevent="sendEmail" class="space-y-5">
-            <div class="grid md:grid-cols-2 gap-5">
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                  Full Name
-                </label>
-                <input
-                  v-model="form.name"
-                  type="text"
-                  placeholder="John Doe"
-                  required
-                  class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 focus:outline-none" />
-              </div>
-              <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-2">
-                  Email Address
-                </label>
-                <input
-                  v-model="form.email"
-                  type="email"
-                  placeholder="john@example.com"
-                  required
-                  class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 focus:outline-none" />
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-2">
-                Subject
-              </label>
-              <input
-                v-model="form.subject"
-                type="text"
-                placeholder="Project Inquiry"
-                required
-                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 focus:outline-none" />
-            </div>
-            <div>
-              <label class="block text-sm font-semibold text-gray-700 mb-2">
-                Message
-              </label>
-              <textarea
-                v-model="form.message"
-                rows="4"
-                required
-                placeholder="Briefly describe your project..."
-                class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-cyan-500/20 focus:border-cyan-500 focus:outline-none resize-none"></textarea>
-            </div>
-            <!-- STATUS -->
-            <div
-              v-if="isSuccess || errorMessage"
-              class="flex items-center gap-3 rounded-xl p-4 transition-all duration-300"
-              :class="
-                isSuccess
-                  ? 'bg-green-50 text-green-700 border border-green-100'
-                  : 'bg-red-50 text-red-700 border border-red-100'
-              ">
-              <div
-                class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full"
-                :class="isSuccess ? 'bg-green-100' : 'bg-red-100'">
-                <svg
-                  v-if="isSuccess"
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7" />
-                </svg>
-                <svg
-                  v-else
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor">
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </div>
-              <p class="text-sm font-semibold">
-                {{ isSuccess ? "Message sent successfully!" : errorMessage }}
-              </p>
-            </div>
-            <button
-              type="submit"
-              :disabled="isLoading"
-              class="w-full py-4 bg-cyan-600 text-white font-bold rounded-xl hover:bg-cyan-700 hover:shadow-lg hover:shadow-cyan-200 transition-all duration-300 disabled:opacity-60">
-              {{ isLoading ? "Sending..." : "Send Message" }}
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>

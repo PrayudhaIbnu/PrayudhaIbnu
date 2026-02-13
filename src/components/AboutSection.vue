@@ -1,31 +1,36 @@
 <template>
   <section
     id="about"
-    class="py-24 bg-slate-50 overflow-hidden bg-gradient-to-br from-yellow-100/50 via-gray-50 to-green-200">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- Image Side with Decorative Elements -->
-        <div class="relative group animate-fade-in-up">
-          <!-- Decorative Background Circle -->
-          <div
-            class="absolute -top-10 -left-10 w-40 h-40 bg-green-200/50 rounded-full blur-3xl animate-pulse"></div>
+    class="relative py-28 overflow-hidden bg-gradient-to-tl from-cyan-600 via-cyan-600 to-green-300 text-white">
+    <!-- Overlay -->
+    <!-- <div class="absolute inset-0 bg-black/25"></div> -->
 
+    <div class="relative max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <!-- Image Side -->
+        <div class="relative group">
+          <!-- Glow Blob -->
           <div
-            class="relative bg-white p-3 rounded-2xl shadow-xl transform transition-all duration-700 hover:-translate-y-2 hover:shadow-2xl max-w-sm mx-auto z-10">
+            class="absolute -top-16 -left-16 w-56 h-56 bg-green-300/30 rounded-full blur-3xl animate-pulse"></div>
+
+          <!-- Image Card -->
+          <div
+            class="relative bg-white/10 backdrop-blur p-3 rounded-3xl border border-white/20 shadow-2xl max-w-sm mx-auto transition-all duration-500 hover:-translate-y-2">
             <img
               src="../assets/image/Adobe Express - file.png"
               alt="About Me"
-              class="w-full h-auto rounded-xl object-cover aspect-[4/5]" />
+              class="w-full h-auto rounded-2xl object-cover aspect-[4/5]" />
           </div>
+
           <!-- Floating Badge -->
           <div
-            class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block border border-slate-100 transition-all duration-500 hover:scale-105 z-20 animate-float">
+            class="absolute -bottom-6 -right-6 hidden md:block bg-white/10 backdrop-blur border border-white/20 rounded-2xl p-5 shadow-xl animate-float">
             <div class="flex items-center gap-4">
               <div
-                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                class="w-12 h-12 bg-green-400/50 rounded-full flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 text-green-700"
+                  class="h-6 w-6 text-green-200"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor">
@@ -37,54 +42,58 @@
                 </svg>
               </div>
               <div>
-                <p class="text-sm font-bold text-slate-900">
-                  Available for Hire
-                </p>
-                <p class="text-xs text-slate-500">Freelance Developer</p>
+                <p class="text-sm font-bold text-white">Available for Hire</p>
+                <p class="text-xs text-white/80">Freelance Developer</p>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Content Side -->
-        <div class="space-y-8 animate-fade-in-right">
+        <div class="space-y-8">
           <div>
             <span
-              class="inline-block px-4 py-1.5 mb-4 text-sm font-semibold tracking-wider text-green-700 uppercase bg-green-100 rounded-full transition-all duration-300 hover:bg-green-200 animate-bounce-subtle">
-              My Story
+              class="inline-block px-4 py-1.5 mb-5 text-sm font-bold tracking-wider uppercase rounded-full bg-white/20 backdrop-blur border border-white/20">
+              About Me
             </span>
-            <h3
-              class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-              Crafting Digital
-              <span
-                class="text-green-700 transition-colors duration-300 hover:text-green-600"
-                >Experiences</span
+
+            <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+              <span class="text-green-600 bg-white rounded-xl px-3 py-1"
+                >Crafting Digital</span
               >
+              <span
+                class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-1 before:bg-white mt-5">
+                <span class="relative text-cyan-600 px-3 py-1"
+                  >Experiences</span
+                >
+              </span>
             </h3>
           </div>
 
-          <div class="space-y-4 text-lg text-slate-700 leading-relaxed">
-            <p class="transition-all duration-500 hover:translate-x-2">
-              I’m a freelance web developer who focuses on building fast,
-              responsive, and user-friendly websites. I enjoy turning complex
-              problems into simple, beautiful interfaces.
+          <div class="space-y-5 text-lg text-white/90 leading-relaxed">
+            <p>
+              I’m a freelance web developer who builds
+              <span class="font-semibold text-white">
+                fast, responsive, and modern
+              </span>
+              websites with strong focus on performance and usability.
             </p>
-            <p class="transition-all duration-500 hover:translate-x-2">
-              I usually work with modern technologies like
+            <p>
+              I work with technologies like
               <span
-                class="font-semibold text-slate-900 border-b-2 border-green-200 hover:border-green-500 transition-colors duration-300"
-                >Vue, Tailwind, and REST APIs</span
-              >
-              to deliver scalable and maintainable web solutions that help
-              businesses grow.
+                class="font-semibold text-white underline decoration-white/40">
+                Vue, Tailwind, and REST APIs
+              </span>
+              to deliver scalable solutions that help brands grow and convert.
             </p>
           </div>
-          <!-- ACTION BUTTON -->
-          <div class="pt-4 flex flex-wrap justify-end gap-4">
+
+          <!-- Action -->
+          <div class="pt-6 flex justify-end">
             <a
               href="/cv/Prayudha_Ibnu_CV.pdf"
               download
-              class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-green-700 text-white font-semibold shadow-md transition-all duration-300 hover:bg-green-800 hover:-translate-y-1 hover:shadow-xl">
+              class="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-slate-900 text-white font-bold shadow-xl hover:bg-slate-800 hover:-translate-y-1 transition-all duration-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-5 h-5"
@@ -105,64 +114,3 @@
     </div>
   </section>
 </template>
-
-<style scoped>
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes bounceSubtle {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 1s ease-out forwards;
-}
-
-.animate-fade-in-right {
-  animation: fadeInRight 1s ease-out 0.2s forwards;
-  opacity: 0;
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-.animate-bounce-subtle {
-  animation: bounceSubtle 2s ease-in-out infinite;
-}
-</style>

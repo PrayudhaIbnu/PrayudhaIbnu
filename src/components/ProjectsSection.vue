@@ -1,40 +1,46 @@
 <template>
   <section
     id="projects"
-    class="relative overflow-hidden bg-gradient-to-br from-blue-100 via-gray-50 to-red-200 py-24 sm:py-32">
+    class="relative overflow-hidden bg-gradient-to-br from-cyan-600 via-cyan-600 to-green-300 py-24 sm:py-32 text-white">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="grid grid-cols-1 gap-x-16 gap-y-16 lg:grid-cols-12">
         <!-- Header Content -->
         <header
-          class="animate-fade-in-up lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
-          <div class="mb-4 flex items-center gap-2">
-            <span class="h-px w-8 bg-red-600" />
+          class="relative z-10 lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
+          <div class="mb-4 flex items-center gap-3">
+            <span class="h-px w-8 bg-white/60" />
             <span
-              class="text-sm font-bold uppercase tracking-widest text-red-600">
-              portfolio
+              class="text-sm font-bold uppercase tracking-widest text-white/80">
+              Portfolio
             </span>
           </div>
 
           <h2
-            class="mt-6 text-4xl font-black tracking-tight text-slate-900 sm:text-5xl">
-            Selected <span class="text-red-600">Projects</span>
+            class="text-4xl inline-flex gap-3 items-center md:text-5xl font-extrabold tracking-tight">
+            <span
+              class="relative inline-block before:rounded-xl before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-white">
+              <span class="relative text-cyan-600 px-3 py-1">Selected</span>
+            </span>
+            <span class="text-green-600 bg-white rounded-xl px-3 py-1"
+              >Projects</span
+            >
           </h2>
-          <div class="mt-6 h-1 w-12 rounded-full bg-red-600/80"></div>
-          <p class="mt-6 text-lg leading-8 text-slate-600">
-            Showcasing digital experiences built with precision, focusing on
-            performance and user-centric design.
+
+          <div class="mt-6 h-1 w-12 rounded-full bg-white/70"></div>
+
+          <p class="mt-6 text-lg leading-8 text-white/90">
+            A collection of digital experiences focused on performance,
+            scalability, and user-centric design.
           </p>
 
-          <div class="mt-10 flex items-center gap-x-6">
+          <div class="mt-10">
             <a
               href="#contact"
-              class="group flex items-center gap-x-2 text-sm font-bold leading-6 text-slate-900 transition-colors hover:text-red-600">
+              class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-green-200 transition">
               Start a conversation
-              <span
-                class="transition-transform group-hover:translate-x-1"
-                aria-hidden="true">
-                &rarr;
-              </span>
+              <span class="transition-transform group-hover:translate-x-1"
+                >→</span
+              >
             </a>
           </div>
         </header>
@@ -53,36 +59,36 @@
 
             <!-- Scroll Indicator (mobile only) -->
             <div class="mt-4 block lg:hidden">
-              <div class="h-1 w-full rounded-full bg-slate-200 overflow-hidden">
+              <div class="h-1 w-full rounded-full bg-white/30 overflow-hidden">
                 <div
-                  class="h-full bg-red-600 transition-all duration-200"
+                  class="h-full bg-gradient-to-r from-white to-green-300 transition-all"
                   :style="{ width: scrollProgress + '%' }" />
               </div>
             </div>
 
             <!-- Modern CTA Card -->
             <div
-              class="animate-fade-in group flex w-[85%] sm:w-[70%] md:w-[420px] shrink-0 snap-start flex-col items-center justify-center rounded-[2.5rem] border border-dashed border-slate-300 bg-white/60 p-10 text-center backdrop-blur-sm transition-all hover:border-red-300 hover:bg-white"
-              :style="{ animationDelay: `${projects.length * 150}ms` }">
+              class="group flex w-[85%] sm:w-[70%] md:w-[420px] shrink-0 snap-start flex-col items-center justify-center rounded-[2.5rem] border border-white/30 bg-white/10 backdrop-blur p-10 text-center transition-all hover:border-green-300 hover:bg-white/20">
               <div
-                class="flex h-14 w-14 items-center justify-center rounded-full bg-red-600 text-white transition-transform group-hover:scale-110">
+                class="flex h-14 w-14 items-center justify-center rounded-full bg-slate-900 text-white transition-transform group-hover:scale-110">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
+                  class="size-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="size-6">
+                  stroke="currentColor">
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
+                    stroke-width="2"
                     d="M12 6v12m6-6H6" />
                 </svg>
               </div>
-              <p class="mt-4 text-lg font-semibold text-slate-900">
+
+              <p class="mt-4 text-lg font-semibold text-white">
                 Interested in more?
               </p>
-              <p class="mt-1 text-sm text-slate-500">
+              <p class="mt-1 text-sm text-white/80">
                 Let’s build something together
               </p>
             </div>
