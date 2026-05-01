@@ -67,7 +67,7 @@ import SkillsSection from "@/components/SkillsSection.vue";
 import ProjectsSection from "@/components/ProjectsSection.vue";
 import Promotion from "@/components/Promotion.vue";
 import ContactSection from "@/components/ContactSection.vue";
-import Footer from "@/components/Footer.vue";
+import Footer from "@/components/ui/Footer.vue";
 
 const sections = [
   { id: "hero", label: "Hi!" },

@@ -106,8 +106,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import ProjectCard from "@/components/ProjectCard.vue";
-import ProjectPreviewModal from "@/components/ProjectPreviewModal.vue";
+import ProjectCard from "@/components/ui/project/ProjectCard.vue";
+import ProjectPreviewModal from "@/components/ui/project/ProjectPreviewModal.vue";
 import { projects } from "@/data/projects";
 
 const activeProject = ref(null);
